@@ -20,7 +20,7 @@ v1.0 · May 2026 · Phase 01 of 03
 14. Code Quality — ESLint · Prettier · Husky
     1. Tech Stack Overview
 
-2. Project Initialisation & Commands
+15. Project Initialisation & Commands
 
 2.1 Create Next.js project
 yarn create next-app@latest workpunkt-student \
@@ -691,6 +691,7 @@ display: "swap",
 
 export default function RootLayout({ children }) {
 return (
+
 <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
 <body>{children}</body>
 </html>
@@ -751,34 +752,10 @@ Never push directly to main — always use PRs
 
 12.3 Branch strategy
 main → production (Vercel prod deployment)
-develop → staging (Vercel preview deployment)
+dev → staging (Vercel preview deployment)
 feature/_ → feature branches — PR into develop
 hotfix/_ → urgent fixes — PR directly into main
 13. Testing Setup
-
-13.1 Vitest configuration (vitest.config.ts)
-import { defineConfig } from "vitest/config";
-import react from "@vitejs/plugin-react";
-import path from "path";
-
-export default defineConfig({
-plugins: [react()],
-test: {
-environment: "jsdom",
-globals: true,
-setupFiles: ["./src/test/setup.ts"],
-},
-resolve: {
-alias: { "@": path.resolve(\_\_dirname, "./src") },
-},
-});
-
-13.2 What to test in Phase 1
-Unit test every utility function in src/lib/utils.ts
-Test each custom hook with @testing-library/react
-E2E with Playwright: login flow, dashboard render, match detail navigation, application detail render
-Snapshot test the StatusPill component — it renders on almost every screen
-14. Code Quality — ESLint · Prettier · Husky
 
 14.1 Prettier config (.prettierrc)
 {
@@ -790,6 +767,7 @@ Snapshot test the StatusPill component — it renders on almost every screen
 "plugins": ["prettier-plugin-tailwindcss"]
 }
 
+<!--
 14.2 lint-staged config (.lintstagedrc.js)
 module.exports = {
 "_.{ts,tsx}": ["eslint --fix", "prettier --write"],
@@ -800,7 +778,7 @@ module.exports = {
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/\_/husky.sh"
 
-yarn lint-staged
+yarn lint-staged -->
 
 14.4 TypeScript tsconfig.json — strict mode
 {
