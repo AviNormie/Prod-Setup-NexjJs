@@ -16,24 +16,22 @@ export default function ApplicationDetailPage({
   const { data, isLoading, error } = useApplication(id);
 
   if (isLoading) {
-    return <p className="text-[var(--color-muted)]">Loading application…</p>;
+    return <p className="text-muted-foreground">Loading application…</p>;
   }
 
   if (error || !data) {
-    return <p className="text-[var(--color-error)]">Application not found.</p>;
+    return <p className="text-error">Application not found.</p>;
   }
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between gap-4">
-        <h1 className="text-[length:var(--text-heading)] font-[family-name:var(--font-display)]">
-          Application
-        </h1>
+        <h1 className="font-display text-heading">Application</h1>
         <StatusPill status={data.status} />
       </div>
       <ProgressBar value={data.progress_pct} />
-      <p className="text-[var(--color-text)]">{data.plain_text_summary}</p>
-      <p className="text-sm text-[var(--color-muted)]">
+      <p className="text-foreground">{data.plain_text_summary}</p>
+      <p className="text-caption text-muted-foreground">
         Updated {formatDate(data.updated_at)}
       </p>
     </div>

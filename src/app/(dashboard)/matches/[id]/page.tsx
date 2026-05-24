@@ -14,20 +14,18 @@ export default function MatchDetailPage({
   const { data, isLoading, error } = useMatch(id);
 
   if (isLoading) {
-    return <p className="text-[var(--color-muted)]">Loading match…</p>;
+    return <p className="text-muted-foreground">Loading match…</p>;
   }
 
   if (error || !data) {
-    return <p className="text-[var(--color-error)]">Match not found.</p>;
+    return <p className="text-error">Match not found.</p>;
   }
 
   return (
     <div className="space-y-4">
-      <h1 className="text-[length:var(--text-heading)] font-[family-name:var(--font-display)]">
-        Match detail
-      </h1>
+      <h1 className="font-display text-heading">Match detail</h1>
       <StatusPill status={data.category} />
-      <p className="text-sm text-[var(--color-muted)]">{data.reasons}</p>
+      <p className="text-caption text-muted-foreground">{data.reasons}</p>
     </div>
   );
 }

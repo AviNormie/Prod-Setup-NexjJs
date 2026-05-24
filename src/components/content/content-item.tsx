@@ -6,13 +6,15 @@ type ContentItemProps = {
 
 export function ContentItem({ fields }: ContentItemProps) {
   return (
-    <article className="rounded-lg border bg-[var(--color-surface)] p-4 shadow-[var(--shadow-card)]">
-      <p className="text-xs uppercase tracking-wide text-[var(--color-muted)]">
+    <article className="rounded-lg border bg-surface p-4 shadow-card">
+      <p className="text-caption uppercase tracking-wide text-muted-foreground">
         {fields.content_type}
       </p>
-      <h3 className="mt-1 font-medium text-[var(--color-text)]">{fields.title}</h3>
+      <h3 className="mt-1 font-medium text-subheading text-foreground">
+        {fields.title}
+      </h3>
       {fields.body ? (
-        <p className="mt-2 text-sm text-[var(--color-muted)] line-clamp-3">
+        <p className="mt-2 line-clamp-3 text-caption text-muted-foreground">
           {fields.body}
         </p>
       ) : null}

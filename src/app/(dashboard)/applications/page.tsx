@@ -7,20 +7,16 @@ export default function ApplicationsPage() {
   const { data, isLoading, error } = useApplications();
 
   if (isLoading) {
-    return <p className="text-[var(--color-muted)]">Loading applications…</p>;
+    return <p className="text-muted-foreground">Loading applications…</p>;
   }
 
   if (error) {
-    return (
-      <p className="text-[var(--color-error)]">Failed to load applications.</p>
-    );
+    return <p className="text-error">Failed to load applications.</p>;
   }
 
   return (
     <div className="space-y-6">
-      <h1 className="text-[length:var(--text-heading)] font-[family-name:var(--font-display)]">
-        Applications
-      </h1>
+      <h1 className="font-display text-heading">Applications</h1>
       <div className="grid gap-4">
         {data?.map((application) => (
           <ApplicationCard

@@ -26,18 +26,16 @@ export default function ContentPage() {
   });
 
   if (isLoading) {
-    return <p className="text-[var(--color-muted)]">Loading content…</p>;
+    return <p className="text-muted-foreground">Loading content…</p>;
   }
 
   if (error) {
-    return <p className="text-[var(--color-error)]">Failed to load content.</p>;
+    return <p className="text-error">Failed to load content.</p>;
   }
 
   return (
     <div className="space-y-6">
-      <h1 className="text-[length:var(--text-heading)] font-[family-name:var(--font-display)]">
-        Content hub
-      </h1>
+      <h1 className="font-display text-heading">Content hub</h1>
       <div className="grid gap-4 md:grid-cols-2">
         {data?.map((item) => (
           <ContentItem key={item.id} fields={item} />
