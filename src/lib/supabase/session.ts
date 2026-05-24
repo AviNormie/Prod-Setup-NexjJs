@@ -31,6 +31,7 @@ export async function updateSession(request: NextRequest) {
     },
   );
 
+  // Refresh session — always call getUser(), never getSession()
   const {
     data: { user },
   } = await supabase.auth.getUser();

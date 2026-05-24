@@ -258,7 +258,7 @@
   }
 
   html {
-    @apply font-body;
+    font-family: var(--font-body), system-ui, sans-serif;
   }
 
   body {
@@ -271,7 +271,9 @@
   h1,
   h2,
   h3 {
-    @apply font-display leading-tight tracking-tight;
+    font-family: var(--font-display), Georgia, serif;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
   }
 }
 
@@ -344,19 +346,5 @@
   .status-pill--safety {
     background: color-mix(in srgb, var(--color-info) 12%, var(--color-surface));
     color: var(--color-info);
-  }
-}
-
-@layer utilities {
-  .font-display {
-    font-family: var(--font-display), Georgia, serif;
-  }
-
-  .font-body {
-    font-family: var(--font-body), system-ui, sans-serif;
-  }
-
-  .font-mono {
-    font-family: var(--font-mono);
   }
 }
